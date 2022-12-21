@@ -42,3 +42,10 @@ jobs:
       - run: yarn build
       - uses: microsoft/playwright-github-action@v1
       - run: GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }} yarn test:ci
+      
+      
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
